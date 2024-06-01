@@ -1,10 +1,12 @@
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Markup.Xaml;
 
 namespace RSODiplomApplication;
 
-public partial class MainWindow : Window
+public partial class MainMenu : Window
 {
-    public MainWindow()
+    public MainMenu()
     {
         InitializeComponent();
     }
