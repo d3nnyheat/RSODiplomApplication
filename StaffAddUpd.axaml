@@ -1,0 +1,42 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="RSODiplomApplication.StaffAddUpd"
+        Title="Внесение изменений в таблицу 'Сотрудники регионального штаба'"
+        WindowStartupLocation="CenterScreen"
+        Icon="Assets/RSOicon.ico"
+        MinHeight="250" MaxWidth="325"
+        MinWidth="325" MaxHeight="250"
+        Background="#70C5FF">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <TextBox Name="ID" x:CompileBindings="False" Text="{Binding ID}" IsVisible="False"></TextBox>
+            <StackPanel Orientation="Horizontal" Margin = "10 15 0 0">
+                <TextBlock Margin = "10 0 0 0" Width="120">Фамилия: </TextBlock>
+                <TextBox Name="Фамилия" x:CompileBindings="False" Text="{Binding Surname}" Width="150" Height="5" Margin = "10 0 0 0"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin = "10 15 0 0">
+                <TextBlock Margin = "10 0 0 0" Width="120">Имя: </TextBlock>
+                <TextBox Name="Имя" x:CompileBindings="False" Text="{Binding Name}" Width="150" Height="5" Margin = "10 0 0 0"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin = "10 15 0 0">
+                <TextBlock Margin = "10 0 0 0" Width="120">Отчество: </TextBlock>
+                <TextBox Name="Отчество" x:CompileBindings="False" Text="{Binding FatherName}" Width="150" Height="5" Margin = "10 0 0 0"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin = "10 15 0 0">
+                <TextBlock Margin = "10 0 0 0" Width="120">Должность: </TextBlock>
+                <TextBox Name="Должность" x:CompileBindings="False" Text="{Binding Position}" Width="150" Height="5" Margin = "10 0 0 0"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <Label Name="Error" Content="Ошибка, проверьте корректность данных" IsVisible="False"></Label>
+                <Label Name="Good" Content="Изменения успешно внесены" IsVisible="False"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="Save" Content="Сохранить" Click="Save_OnClick"  Margin = "10 15 0 20" Width="100" HorizontalContentAlignment="Center"></Button>
+                <Button Name="Back" Content="Назад" Click="GoBack"  Margin = "80 15 0 20" Width="100" HorizontalContentAlignment="Center"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

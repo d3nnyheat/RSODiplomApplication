@@ -1,0 +1,65 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="RSODiplomApplication.MembersForm"
+        Title="Бойцы студенческих отрядов"
+        Background="#70C5FF"
+        Icon="Assets/RSOicon.ico"
+        MaxWidth="1550" MinWidth="1550"
+        MaxHeight="635" MinHeight="635"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <Label Content="Бойцы студенческих отрядов" FontSize="20" FontFamily="Arial" HorizontalContentAlignment="Center"></Label>
+        <DataGrid Name="MemberGrid" GridLinesVisibility="All" BorderThickness="1" Height="500" x:CompileBindings="False" Margin ="10 5 0 0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding FatherName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Возраст" Binding="{Binding Age}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Номер телефона" Binding="{Binding PhoneNumber}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Город" Binding="{Binding CityName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Улица" Binding="{Binding StreetName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Номер дома" Binding="{Binding HouseNumber}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Номер улицы" Binding="{Binding ApartmentNumber}"></DataGridTextColumn>
+                <DataGridTextColumn Header="ID паспорта" Binding="{Binding PassportID}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Отряд" Binding="{Binding SquadName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Должность" Binding="{Binding PositionName}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center"
+                           x:Name="FilterNum" Margin ="10 10 0 0">Фильтрация по ID </TextBlock>
+                <ComboBox Name="FiltrComboBox" Width="200" Margin ="10 10 0 0" 
+                          x:CompileBindings="False"
+                          SelectionChanged="FiltrTable_OnSelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding ID}"></TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock VerticalAlignment="Center" Margin = "10 10 0 0"> Поиск по фамилии: </TextBlock>
+                <TextBox Name="SearchTextBox" Width="200" Margin ="10 10 0 0" TextChanged="SearchTextBox_OnTextChanged"></TextBox>
+                <Button Name="Reset" Content="Обновить таблицу" Click="ResetTable_OnClick" Margin=" 10 10 0  0"></Button>
+            </StackPanel>
+        </StackPanel> 
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Margin="10 15 20 0">
+                <Button Name="Add" Content="Добавить данные"  Click="AddData"></Button>
+            </StackPanel>
+            <StackPanel Margin="10 15 20 0">
+                <Button Name="Update" Content="Изменить данные"  Click="EditData"></Button>
+            </StackPanel>
+            <StackPanel Margin="10 15 20 0">
+                <Button Name="Delete" Content="Удалить данные" Click="DeleteData"></Button>
+            </StackPanel>
+            <StackPanel Margin="870 15 10 10">
+                <Button Name="BackButton" HorizontalAlignment="Center" Content="Вернуться к меню" Click="BackToMenu"></Button>
+            </StackPanel>
+        </StackPanel>
+        </StackPanel>
+</Window>

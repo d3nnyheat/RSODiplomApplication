@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="RSODiplomApplication.CatalogForm"
+        Title="Каталог"
+        Width="500" Height="530"
+        Background="#70C5FF"
+        Icon="Assets/RSOicon.ico"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <Label Content="Каталог" FontSize="20" FontFamily="Arial" HorizontalContentAlignment="Center"></Label>
+        <DataGrid Name="CatalogGrid" Height="350" x:CompileBindings="False" Margin ="10 5 0 0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding CatalogName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Price}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock VerticalAlignment="Center" Margin = "10 10 0 0"> Поиск по наименованию: </TextBlock>
+            <TextBox Name="SearchTextBox" Width="175" Margin ="5 10 0 0" TextChanged="SearchTextBox_OnTextChanged"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Margin="10 15 20 0">
+                <Button Name="Add" Content="Добавить данные"  Click="AddData"></Button>
+            </StackPanel>
+            <StackPanel Margin="10 15 20 0">
+                <Button Name="Update" Content="Изменить данные"  Click="EditData"></Button>
+            </StackPanel>
+            <StackPanel Margin="10 15 20 0">
+                <Button Name="Delete" Content="Удалить данные" Click="DeleteData"></Button>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" Margin="10 10 10 10">
+            <Button Name="BackButton" Content="Вернуться к меню" Click="BackToMenu"></Button>
+        </StackPanel>
+    </StackPanel>
+</Window>

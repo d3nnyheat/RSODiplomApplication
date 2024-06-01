@@ -7,7 +7,9 @@
         Title="Авторизация"
         Background="#70C5FF"
         WindowStartupLocation="CenterScreen"
-        Icon="Assets/RSOicon.ico">
+        MaxWidth="310" MinWidth="310"
+        MaxHeight="150" MinHeight="150"
+        Icon="/Assets/RSOicon.ico">
     <Grid>
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
@@ -22,9 +24,8 @@
                 <Label Name="LoginError" HorizontalAlignment="Center" Content="Неверный логин/пароль!" IsVisible="False"></Label>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button Name="Login" Content="Авторизация" Click="LoginAttempt" Margin=" 10 10 65 10"></Button>
-                <Button Name="Form2" Content="Регистрация" Click="GoToSignUp" Margin=" 5 10 65 10"></Button>
-                <Button Name="Exit" Content="Выход" Click="AppExit" Margin=" 0 0 0 0"></Button>
+                    <Button Name="Login" Content="Авторизация" Click="LoginAttempt" Margin=" 5 5 5 35"></Button>
+                    <Button Name="Form2" Content="Регистрация" Click="GoToSignUp" Margin=" 75 5 10 35"></Button>
             </StackPanel>
         </StackPanel>
     </Grid>

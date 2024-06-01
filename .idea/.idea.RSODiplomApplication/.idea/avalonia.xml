@@ -4,10 +4,18 @@
     <option name="projectPerEditor">
       <map>
         <entry key="App.axaml" value="RSODiplomApplication.csproj" />
+        <entry key="CatalogAddUpd.axaml" value="RSODiplomApplication.csproj" />
+        <entry key="CatalogForm.axaml" value="RSODiplomApplication.csproj" />
         <entry key="LoginWindow.axaml" value="RSODiplomApplication.csproj" />
         <entry key="MainMenu.axaml" value="RSODiplomApplication.csproj" />
         <entry key="MainWindow.axaml" value="RSODiplomApplication.csproj" />
+        <entry key="MembersAddUpd.axaml" value="RSODiplomApplication.csproj" />
+        <entry key="MembersForm.axaml" value="RSODiplomApplication.csproj" />
+        <entry key="OrdersAddUpd.axaml" value="RSODiplomApplication.csproj" />
+        <entry key="OrdersForm.axaml" value="RSODiplomApplication.csproj" />
         <entry key="SignUp.axaml" value="RSODiplomApplication.csproj" />
+        <entry key="StaffAddUpd.axaml" value="RSODiplomApplication.csproj" />
+        <entry key="StaffForm.axaml" value="RSODiplomApplication.csproj" />
       </map>
     </option>
   </component>

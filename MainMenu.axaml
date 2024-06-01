@@ -4,6 +4,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="RSODiplomApplication.MainMenu"
-        Title="MainMenu">
-    Welcome to Avalonia!
+        Title="Главное меню"
+        Background="#70C5FF"
+        Icon="Assets/RSOicon.ico"
+        WindowStartupLocation="CenterScreen"
+        MaxWidth="470" MinWidth="470"
+        MaxHeight="220" MinHeight="220"> 
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin=" 10 10 0 0">
+                <Button Name="MembersButton" Content="Члены организации" Click="MembersButton_OnClick"></Button></StackPanel>
+            <StackPanel Orientation="Vertical" Margin=" 10 10 0 0">
+                <Button Name="CatalogButton" Content="Каталог атрибутики" Click="CatalogButton_OnClick"></Button></StackPanel>
+            <StackPanel Orientation="Horizontal" Margin=" 10 10 0 0">
+                <Button Name="OrdersButton" Content="Заказы" Click="OrdersButton_OnClick"></Button></StackPanel>
+            <StackPanel Orientation="Vertical" Margin=" 10 10 0 0">
+                <Button Name="StaffButton" Content="Сотрудники" Click="StaffButton_OnClick"></Button></StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" >
+            <StackPanel Margin=" 200 10 0 0">
+                <Button Name="SquadButton" Content="Список отрядов" Click="MembersButton_OnClick"></Button>
+            </StackPanel>
+            <StackPanel Margin=" 200 10 0 0">
+                <Button Name="Events" Content="Мероприятия" Click="MembersButton_OnClick"></Button>
+            </StackPanel>
+            <StackPanel Margin=" 200 10 0 0">
+                <Button Name="Procedures" Content="Хранимые процедуры" Click="MembersButton_OnClick"></Button>
+            </StackPanel>
+            <StackPanel Margin=" 200 10 0 0">
+                <Button Name="Parameters" Content="Параметры" Click="MembersButton_OnClick"></Button>
+            </StackPanel>
+            <StackPanel Margin=" 315 15 0 0">
+                <Button Name="Logon" Content="Выход из системы" Click="Logon_OnClick"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
 </Window>

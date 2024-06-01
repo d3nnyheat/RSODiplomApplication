@@ -4,12 +4,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="RSODiplomApplication.SignUp"
-        Title="Авторизация"
+        Title="Регистрация"
         Background="#70C5FF"
         WindowStartupLocation="CenterScreen"
-        MaxWidth="300" MinWidth="300"
-        MaxHeight="180" MinHeight="180"
-        Icon="/Assets/rso.ico">
+        MaxWidth="380" MinWidth="380"
+        MaxHeight="200" MinHeight="200"
+        Icon="/Assets/RSOicon.ico">
     <Grid>
         <StackPanel Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
@@ -28,8 +28,8 @@
                 <Label Name="LoginError" HorizontalAlignment="Center" Content="Неверный логин/пароль!" IsVisible="False"></Label>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button Name="Form2" Content="Вход" Click="SignUpAttempt" Margin=" 10 10 65 10"></Button>
-                <Button Name="Exit" Content="Выход" Click="GoBack" Margin=" 100 10 0 10"></Button>
+                <Button Name="Form2" Content="Регистрация" Click="SignUpAttempt" Margin=" 10 10 65 10"></Button>
+                <Button Name="Exit" Content="Назад" Click="GoBack" Margin=" 130 10 0 10"></Button>
             </StackPanel>
         </StackPanel>
     </Grid>
