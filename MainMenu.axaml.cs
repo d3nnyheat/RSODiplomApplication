@@ -52,4 +52,18 @@ public partial class MainMenu : Window
         Hide();
         sf.Show();
     }
+
+    private void ProceduresButton_OnClick(object? sender, RoutedEventArgs e)
+    {
+        ProcedureForm pf = new ProcedureForm();
+        Hide();
+        pf.Show();
+    }
+
+    private void ParametersButton_OnClick(object? sender, RoutedEventArgs e)
+    {
+        ParametrsForm param = new ParametrsForm();
+        Hide();
+        param.Show();
+    }
 }

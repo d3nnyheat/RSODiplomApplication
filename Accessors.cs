@@ -76,3 +76,8 @@ public partial class Events
     public string Description { get; set; }
 }
 
+public partial class Procedure
+{
+    public string NameSquad { get; set; }
+    public int Amount { get; set; }
+}

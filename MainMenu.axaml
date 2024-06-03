@@ -29,10 +29,10 @@
                 <Button Name="Events" Content="Мероприятия" Click="MembersButton_OnClick"></Button>
             </StackPanel>
             <StackPanel Margin=" 200 10 0 0">
-                <Button Name="Procedures" Content="Хранимые процедуры" Click="MembersButton_OnClick"></Button>
+                <Button Name="Procedures" Content="Хранимые процедуры" Click="ProceduresButton_OnClick"></Button>
             </StackPanel>
             <StackPanel Margin=" 200 10 0 0">
-                <Button Name="Parameters" Content="Параметры" Click="MembersButton_OnClick"></Button>
+                <Button Name="Parameters" Content="Параметры" Click="ParametersButton_OnClick"></Button>
             </StackPanel>
             <StackPanel Margin=" 315 15 0 0">
                 <Button Name="Logon" Content="Выход из системы" Click="Logon_OnClick"></Button>

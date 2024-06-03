@@ -13,6 +13,8 @@
         <entry key="MembersForm.axaml" value="RSODiplomApplication.csproj" />
         <entry key="OrdersAddUpd.axaml" value="RSODiplomApplication.csproj" />
         <entry key="OrdersForm.axaml" value="RSODiplomApplication.csproj" />
+        <entry key="ParametrsForm.axaml" value="RSODiplomApplication.csproj" />
+        <entry key="ProcedureForm.axaml" value="RSODiplomApplication.csproj" />
         <entry key="SignUp.axaml" value="RSODiplomApplication.csproj" />
         <entry key="StaffAddUpd.axaml" value="RSODiplomApplication.csproj" />
         <entry key="StaffForm.axaml" value="RSODiplomApplication.csproj" />

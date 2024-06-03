@@ -1,0 +1,25 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="RSODiplomApplication.ParametrsForm"
+        Title="Параметры"
+        Width="650" Height="125"
+        Background="#70C5FF"
+        Icon="Assets/RSOicon.ico"
+        WindowStartupLocation="CenterScreen">
+        <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="10 15 20 0">
+                        <Button Name="Backup" Content="Создать резеврную копию"  Click="BackupMethod"></Button>
+                </StackPanel>
+                <StackPanel Margin="25 15 100 0">
+                        <Button Name="Restore" Content="Восстановить БД"  Click="Restore_OnClick"></Button>
+                </StackPanel>
+                <StackPanel>
+                        <StackPanel Margin=" 0 75 0 0">
+                                <Button Name="Logon" Content="Вернуться в меню" Click="BackToMenu"></Button>
+                        </StackPanel>
+                </StackPanel>
+        </StackPanel>
+</Window>
