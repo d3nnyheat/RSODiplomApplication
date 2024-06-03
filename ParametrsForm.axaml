@@ -14,7 +14,7 @@
                         <Button Name="Backup" Content="Создать резеврную копию"  Click="BackupMethod"></Button>
                 </StackPanel>
                 <StackPanel Margin="25 15 100 0">
-                        <Button Name="Restore" Content="Восстановить БД"  Click="Restore_OnClick"></Button>
+                        <Button Name="Restore" Content="Восстановить БД"  Click="RestoreMethod"></Button>
                 </StackPanel>
                 <StackPanel>
                         <StackPanel Margin=" 0 75 0 0">

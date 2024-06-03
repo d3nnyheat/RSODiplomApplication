@@ -15,7 +15,44 @@ public partial class ParametrsForm : Window
     {
         InitializeComponent();
     }
+    public class MySQLRestore
+    {
+        private string connectionString;
+        private string backupFilePath;
 
+        public MySQLRestore(string connectionString, string backupFilePath)
+        {
+            this.connectionString = connectionString;
+            this.backupFilePath = backupFilePath;
+        }
+
+        public void Restore_OnClick()
+        {
+            try
+            {
+                // Создаем подключение к MySQL
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    // Открываем соединение
+                    connection.Open();
+                    // Читаем содержимое файла резервной копии
+                    string script = File.ReadAllText(backupFilePath);
+
+                    // Создаем команду SQL для восстановления базы данных из файла
+                    using (MySqlCommand cmd = new MySqlCommand(script, connection))
+                    {
+                        // Выполняем команду
+                        cmd.ExecuteNonQuery();
+                        Console.WriteLine("База данных успешно восстановлена из файла резервной копии.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка при восстановлении базы данных: {ex.Message}");
+            }
+        }
+    }
     public class MySQLBackup
     {
         private string connectionString;
@@ -39,9 +76,9 @@ public partial class ParametrsForm : Window
 
                     // Создаем команду SQL для выполнения резервного копирования базы данных
                     string dbName = connection.Database;
-                    string backupFile = Path.Combine(backupPath, $"{dbName}_{DateTime.Now:yyyyMMdd_HHmmss}.sql");
+                    string backupFile = Path.Combine(backupPath, $"{dbName}_{Convert.ToString("Backup")}.sql");
                     Process.Start($"C:/Program Files/MySQL/MySQL Server 8.3/bin/mysqldump.exe",
-                        $"-v -h localhost -u root -p landoNorris4 {dbName} --result-file={backupFile}");
+                        $"-v -h localhost -u root -p {dbName} --ignore-error=TRUE --default-character-set=utf8 --single-transaction=TRUE --skip-triggers --protocol=tcp --result-file={backupFile}");
                     Console.WriteLine("Резервное копирование завершено.");
                 }
             }
@@ -52,11 +89,12 @@ public partial class ParametrsForm : Window
         }
     }
 
-    private void Restore_OnClick(object? sender, RoutedEventArgs e)
+    private void RestoreMethod(object? sender, RoutedEventArgs e)
     {
-        MainMenu menu = new MainMenu();
-        Hide();
-        menu.Show();
+        string connectionString = "server=localhost;user=root;password=landoNorris4;port=3306;database=rsoimport;";
+        string backupFilePath = @"C:\Backup\rsodatabase_Backup.sql";
+        MySQLRestore restore = new MySQLRestore(connectionString, backupFilePath);
+        restore.Restore_OnClick();
     }
 
     private void BackupMethod(object? sender, RoutedEventArgs e)
