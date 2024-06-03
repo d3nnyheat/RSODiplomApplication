@@ -5,15 +5,15 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="RSODiplomApplication.ParametrsForm"
         Title="Параметры"
-        Width="650" Height="125"
+        Width="550" Height="120"
         Background="#70C5FF"
         Icon="Assets/RSOicon.ico"
         WindowStartupLocation="CenterScreen">
         <StackPanel Orientation="Horizontal">
-                <StackPanel Margin="10 15 20 0">
-                        <Button Name="Backup" Content="Создать резеврную копию"  Click="BackupMethod"></Button>
+                <StackPanel Margin="10 15 10 0">
+                        <Button Name="Backup" Content="Создать резеврную копию БД"  Click="BackupMethod"></Button>
                 </StackPanel>
-                <StackPanel Margin="25 15 100 0">
+                <StackPanel Margin="10 15 0 0">
                         <Button Name="Restore" Content="Восстановить БД"  Click="RestoreMethod"></Button>
                 </StackPanel>
                 <StackPanel>
