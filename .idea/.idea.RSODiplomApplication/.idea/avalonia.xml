@@ -6,6 +6,11 @@
         <entry key="App.axaml" value="RSODiplomApplication.csproj" />
         <entry key="CatalogAddUpd.axaml" value="RSODiplomApplication.csproj" />
         <entry key="CatalogForm.axaml" value="RSODiplomApplication.csproj" />
+        <entry key="ClientCatalog.axaml" value="RSODiplomApplication.csproj" />
+        <entry key="ClientEvents.axaml" value="RSODiplomApplication.csproj" />
+        <entry key="ClientMainMenu.axaml" value="RSODiplomApplication.csproj" />
+        <entry key="ClientSquad.axaml" value="RSODiplomApplication.csproj" />
+        <entry key="ClientStaff.axaml" value="RSODiplomApplication.csproj" />
         <entry key="EventsAddUpd.axaml" value="RSODiplomApplication.csproj" />
         <entry key="EventsForm.axaml" value="RSODiplomApplication.csproj" />
         <entry key="LoginWindow.axaml" value="RSODiplomApplication.csproj" />

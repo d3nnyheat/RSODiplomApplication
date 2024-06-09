@@ -54,9 +54,9 @@ public partial class LoginWindow : Window
             }
             if (sqlCommand.ExecuteScalar() != null)
             {
-                MainMenu menu = new MainMenu();
+                ClientMainMenu clientmenu = new ClientMainMenu();
                 Hide();
-                menu.Show();
+                clientmenu.Show();
             }
         }
         catch (Exception ex)
