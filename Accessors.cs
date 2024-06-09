@@ -64,18 +64,26 @@ public partial class Squad
 {
     public int ID { get; set; }
     public string NameSquad { get; set; }
-    public string Specialization { get; set; }
+    public string SpecName { get; set; }
     public int StaffID { get; set; }
 }
-
+public partial class Specialization
+{
+    public int ID { get; set; }
+    public string SpecName { get; set; }
+}
 public partial class Events
 {
     public int ID { get; set; }
     public string Name { get; set; }
-    public string Type_Name { get; set; }
+    public string EventTypeName { get; set; }
     public string Description { get; set; }
 }
-
+public partial class EventType
+{
+    public int ID { get; set; }
+    public string EventTypeName { get; set; }
+}
 public partial class Procedure
 {
     public string NameSquad { get; set; }

@@ -25,8 +25,12 @@ public partial class OrdersAddUpd : Window
         orders = ordersList;
         FillCatalog();
         FillStatus();
+        this.Closing += OrdersAU_Closing; // завершает работу приложения в случае закрытии программы на крестик
     }
-
+    private void OrdersAU_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    {
+        Environment.Exit(0);
+    }
     private void FillStatus()
     {
         status = new List<Status>();

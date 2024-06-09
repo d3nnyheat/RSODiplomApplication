@@ -14,6 +14,11 @@ public partial class ParametrsForm : Window
     public ParametrsForm()
     {
         InitializeComponent();
+        this.Closing += Parametrs_Closing; // завершает работу приложения в случае закрытии программы на крестик
+    }
+    private void Parametrs_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    {
+        Environment.Exit(0);
     }
     public class MySQLRestore
     {

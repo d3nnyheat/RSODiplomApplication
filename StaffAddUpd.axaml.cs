@@ -21,8 +21,12 @@ public partial class StaffAddUpd : Window
         fullstaff = currentStaff;
         this.DataContext = fullstaff;
         staffs = staff;
+        this.Closing += StaffAU_Closing; // завершает работу приложения в случае закрытии программы на крестик
     }
-
+    private void StaffAU_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    {
+        Environment.Exit(0);
+    }
     private void Save_OnClick(object? sender, RoutedEventArgs e)
     {
         var code = staffs.FirstOrDefault(x => x.ID == fullstaff.ID);

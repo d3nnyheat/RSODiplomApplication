@@ -23,10 +23,10 @@
         </StackPanel>
         <StackPanel Orientation="Vertical" >
             <StackPanel Margin=" 200 10 0 0">
-                <Button Name="SquadButton" Content="Список отрядов" Click="MembersButton_OnClick"></Button>
+                <Button Name="SquadButton" Content="Список отрядов" Click="SquadButton_OnClick"></Button>
             </StackPanel>
             <StackPanel Margin=" 200 10 0 0">
-                <Button Name="Events" Content="Мероприятия" Click="MembersButton_OnClick"></Button>
+                <Button Name="Events" Content="Мероприятия" Click="EventsButton_OnClick"></Button>
             </StackPanel>
             <StackPanel Margin=" 200 10 0 0">
                 <Button Name="Procedures" Content="Хранимые процедуры" Click="ProceduresButton_OnClick"></Button>

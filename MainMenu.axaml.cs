@@ -66,4 +66,18 @@ public partial class MainMenu : Window
         Hide();
         param.Show();
     }
+
+    private void SquadButton_OnClick(object? sender, RoutedEventArgs e)
+    {
+        SquadForm squadForm = new SquadForm();
+        Hide();
+        squadForm.Show();
+    }
+
+    private void EventsButton_OnClick(object? sender, RoutedEventArgs e)
+    {
+        EventsForm ef = new EventsForm();
+        Hide();
+        ef.Show();
+    }
 }

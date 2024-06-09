@@ -21,8 +21,12 @@ public partial class CatalogAddUpd : Window
         fullcatalog = currentCatalog;
         this.DataContext = fullcatalog;
         catalogs = catalog;
+        this.Closing += CatalogAU_Closing; // завершает работу приложения в случае закрытии программы на крестик
     }
-
+    private void CatalogAU_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    {
+        Environment.Exit(0);
+    }
     private void Save_OnClick(object? sender, RoutedEventArgs e)
     {
         var code = catalogs.FirstOrDefault(x => x.ID == fullcatalog.ID);

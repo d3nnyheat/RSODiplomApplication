@@ -11,7 +11,7 @@
         MaxWidth="300"
         WindowStartupLocation="CenterScreen"
         Icon="/Assets/RSOicon.ico"
-        Background="CornflowerBlue">
+        Background="#70C5FF">
     <Grid>
         <StackPanel Orientation="Vertical">
             <TextBlock Margin = "10 10 0 0" FontSize = "20" FontWeight="Bold">Количество человек</TextBlock>

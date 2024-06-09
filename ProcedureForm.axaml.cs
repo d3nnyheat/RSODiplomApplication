@@ -16,6 +16,11 @@ public partial class ProcedureForm : Window
     {
         InitializeComponent();
         Call("call rsodatabase.AmountSquadMembers();");
+        this.Closing += ProcedureForm_Closing; // завершает работу приложения в случае закрытии программы на крестик
+    }
+    private void ProcedureForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+    {
+        Environment.Exit(0);
     }
     private List<Procedure> procedures;
     private string connString = "server=localhost;database=rsodatabase;User Id=root;password=landoNorris4";
