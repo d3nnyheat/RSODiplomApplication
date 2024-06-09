@@ -5,7 +5,7 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="RSODiplomApplication.EventsForm"
         Title="Мероприятия"
-        Width="725" Height="425"
+        Width="1080" Height="425"
         Background="#70C5FF"
         Icon="Assets/RSOicon.ico"
         WindowStartupLocation="CenterScreen">
@@ -24,7 +24,7 @@
             <TextBox Name="SearchTextBox" Width="175" Margin ="5 10 0 0" TextChanged="SearchTextBox_OnTextChanged"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-            <StackPanel Margin="10 15 20 0">
+            <StackPanel Margin="185 15 20 0">
                 <Button Name="Add" Content="Добавить данные"  Click="AddData"></Button>
             </StackPanel>
             <StackPanel Margin="125 15 50 0">

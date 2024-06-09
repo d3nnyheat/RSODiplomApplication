@@ -4,10 +4,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="RSODiplomApplication.EventsAddUpd"
-Title="Внесение изменений в таблицу 'Список отрядов'"
+Title="Внесение изменений в таблицу 'Мероприятия'"
         WindowStartupLocation="CenterScreen"
         Icon="Assets/RSOicon.ico"
-        Width="350"
+        Width="420"
         Height="200"
         Background="#70C5FF">
     <Grid>

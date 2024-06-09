@@ -7,18 +7,18 @@
         Title="Внесение изменений в таблицу 'Заказы'"
         WindowStartupLocation="CenterScreen"
         Icon="Assets/RSOicon.ico"
-        Width="350"
+        Width="370"
         Height="250"
         Background="#70C5FF">
     <Grid>
         <StackPanel Orientation="Vertical">
             <TextBox Name="ID" x:CompileBindings="False" Text="{Binding ID}" IsVisible="False"></TextBox>
             <StackPanel Orientation="Horizontal" Margin = "10 15 0 0">
-                <TextBlock Margin = "10 0 0 0" Width="120">ID члена организации: </TextBlock>
+                <TextBlock Margin = "10 0 0 0" Width="150">ID члена организации: </TextBlock>
                 <TextBox Name="ID_члена_организации" x:CompileBindings="False" Text="{Binding MemberID}" Width="150" Height="5" Margin = "10 0 0 0"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin = "10 15 0 0">
-                <TextBlock Margin = "10 0 0 0" Width="80">Наименование каталога: </TextBlock>
+                <TextBlock Margin = "10 0 0 0" Width="170">Наименование товара: </TextBlock>
                 <ComboBox Name="Наименования_каталога" Width="150" Margin ="10 0 0 0" x:CompileBindings="False">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
