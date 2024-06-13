@@ -18,6 +18,7 @@ public partial class ClientEvents : Window
         string fullTableShow = "select events.ID, events.Name, eventype.EventTypeName, events.Description from events\n" +
                                "join eventype on events.EventType=eventype.ID;";
         ShowTable(fullTableShow);
+        FiltrTable();
     }
     private void EventsForm_Closing(object? sender, WindowClosingEventArgs e)
     {
@@ -58,5 +59,67 @@ public partial class ClientEvents : Window
         ClientMainMenu menu = new ClientMainMenu();
         Hide();
         menu.Show();
+    }
+     private void FiltrTable()
+    {
+        try
+        {
+            eventsList = new List<Events>();
+            conn = new MySqlConnection(connString);
+            conn.Open();
+            MySqlCommand command = new MySqlCommand("select events.ID, events.Name, eventype.EventTypeName, events.Description from events\n" +
+                                                    "join eventype on events.EventType=eventype.ID;", conn);
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read() && reader.HasRows)
+            {
+                var currentEvents = new Events()
+                {
+                    ID = reader.GetInt32("ID"),
+                    Name = reader.GetString("Name"),
+                    EventTypeName = reader.GetString("EventTypeName"),
+                    Description = reader.GetString("Description")
+                };
+                eventsList.Add(currentEvents);
+            }
+            conn.Close();
+            var typecmb = this.Find<ComboBox>(name:"FiltrComboBox");
+            typecmb.ItemsSource = eventsList;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
+    private void FiltrTable_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
+    {
+        try
+        {
+            var TypeCmB = (ComboBox)sender;
+            var currentEvent = TypeCmB.SelectedItem as Events;
+            var fltrmember = eventsList
+                .Where(x => x.ID == currentEvent.ID)
+                .ToList();
+            EventsGrid.ItemsSource = fltrmember;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
+    private void ResetTable_OnClick(object? sender, RoutedEventArgs e)
+    {
+        try
+        {
+            SearchTextBox.Text = string.Empty;
+            string fullTableShow = "select events.ID, events.Name, eventype.EventTypeName, events.Description from events\n" +
+                                   "join eventype on events.EventType=eventype.ID;";
+            ShowTable(fullTableShow);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 }

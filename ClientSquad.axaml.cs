@@ -18,6 +18,7 @@ public partial class ClientSquad : Window
         string fullTableShow = "select squad.id, squad.NameSquad, specialization.SpecName, squad.StaffID from squad\n" +
                                "join specialization on squad.SpecializationName=specialization.ID;";
         ShowTable(fullTableShow);
+        FiltrTable();
     }
     private void SquadForm_Closing(object? sender, WindowClosingEventArgs e)
     {
@@ -53,11 +54,73 @@ public partial class ClientSquad : Window
         squads = squads.Where(x => x.NameSquad.Contains(SearchTextBox.Text)).ToList();
         SquadGrid.ItemsSource = squads;
     }
+     private void FiltrTable()
+    {
+        try
+        {
+            squadList = new List<Squad>();
+            conn = new MySqlConnection(connString);
+            conn.Open();
+            MySqlCommand command = new MySqlCommand("select squad.id, squad.NameSquad, specialization.SpecName, squad.StaffID from squad\n" +
+                                                    "join specialization on squad.SpecializationName=specialization.ID;", conn);
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read() && reader.HasRows)
+            {
+                var currentSquad = new Squad()
+                {
+                    ID = reader.GetInt32("ID"),
+                    NameSquad = reader.GetString("NameSquad"),
+                    SpecName = reader.GetString("SpecName"),
+                    StaffID = reader.GetInt32("StaffID")
+                };
+                squadList.Add(currentSquad);
+            }
+            conn.Close();
+            var typecmb = this.Find<ComboBox>(name:"FiltrComboBox");
+            typecmb.ItemsSource = squadList;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
 
     private void BackToMenu(object? sender, RoutedEventArgs e)
     {
         ClientMainMenu menu = new ClientMainMenu();
         Hide();
         menu.Show();
+    }
+
+    private void FiltrTable_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
+    {
+        try
+        {
+            var TypeCmB = (ComboBox)sender;
+            var currentSquad = TypeCmB.SelectedItem as Squad;
+            var fltrmember = squadList
+                .Where(x => x.ID == currentSquad.ID)
+                .ToList();
+            SquadGrid.ItemsSource = fltrmember;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
+    private void ResetTable_OnClick(object? sender, RoutedEventArgs e)
+    {
+        try
+        {
+            SearchTextBox.Text = string.Empty;
+            string fullTableShow = "select squad.id, squad.NameSquad, specialization.SpecName, squad.StaffID from squad\n" +
+                                   "join specialization on squad.SpecializationName=specialization.ID;";
+            ShowTable(fullTableShow);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 }

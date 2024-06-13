@@ -17,6 +17,7 @@ public partial class ClientCatalog : Window
         this.Closing += CatalogForm_Closing; // завершает работу приложения в случае закрытии программы на крестик
         string fullTableShow = "SELECT * FROM catalog;";
         ShowTable(fullTableShow);
+        FiltrTable();
     }
     private List<Catalog> catalog;
     private string connString = "server=localhost;database=rsodatabase;User Id=root;password=landoNorris4";
@@ -57,5 +58,64 @@ public partial class ClientCatalog : Window
         ClientMainMenu menu = new ClientMainMenu();
         Hide();
         menu.Show();
+    }
+
+    private void FiltrTable_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
+    {
+        try
+        {
+            var TypeCmB = (ComboBox)sender;
+            var currentCatalog = TypeCmB.SelectedItem as Catalog;
+            var fltrmember = catalog
+                .Where(x => x.ID == currentCatalog.ID)
+                .ToList();
+            CatalogGrid.ItemsSource = fltrmember;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+     private void FiltrTable()
+    {
+        try
+        {
+            catalog = new List<Catalog>();
+            conn = new MySqlConnection(connString);
+            conn.Open();
+            MySqlCommand command = new MySqlCommand("SELECT * FROM catalog;", conn);
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read() && reader.HasRows)
+            {
+                var currentCatalog = new Catalog()
+                {
+                    ID = reader.GetInt32("ID"),
+                    CatalogName = reader.GetString("CatalogName"),
+                    Price = reader.GetInt32("Price")
+                };
+                catalog.Add(currentCatalog);
+            }
+            conn.Close();
+            var typecmb = this.Find<ComboBox>(name:"FiltrComboBox");
+            typecmb.ItemsSource = catalog;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
+    private void ResetTable_OnClick(object? sender, RoutedEventArgs e)
+    {
+        try
+        {
+            SearchTextBox.Text = string.Empty;
+            string fullTableShow = "SELECT * FROM catalog;";
+            ShowTable(fullTableShow);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 }

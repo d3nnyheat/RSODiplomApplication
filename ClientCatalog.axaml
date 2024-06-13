@@ -5,7 +5,7 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="RSODiplomApplication.ClientCatalog"
         Title="Каталог"
-        Width="500" Height="480"
+        Width="880" Height="480"
         Background="#70C5FF"
         Icon="Assets/RSOicon.ico"
         WindowStartupLocation="CenterScreen">
@@ -19,8 +19,20 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock VerticalAlignment="Center"
+                       x:Name="FilterNum" Margin ="10 10 0 0">Фильтрация по ID </TextBlock>
+            <ComboBox Name="FiltrComboBox" Width="200" Margin ="10 10 0 0" 
+                      x:CompileBindings="False"
+                      SelectionChanged="FiltrTable_OnSelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding ID}"></TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
             <TextBlock VerticalAlignment="Center" Margin = "10 10 0 0"> Поиск по наименованию: </TextBlock>
             <TextBox Name="SearchTextBox" Width="175" Margin ="5 10 0 0" TextChanged="SearchTextBox_OnTextChanged"></TextBox>
+            <Button Name="Reset" Content="Обновить таблицу" Click="ResetTable_OnClick" Margin=" 10 10 0  0"></Button>
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" Margin="10 10 10 10">
             <Button Name="BackButton" Content="Вернуться к меню" Click="BackToMenu"></Button>

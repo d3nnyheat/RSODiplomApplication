@@ -47,6 +47,36 @@ public partial class ClientStaff : Window
         conn.Close();
         StaffGrid.ItemsSource = staff;
     }
+    private void FiltrTable()
+    {
+        try
+        {
+            staff = new List<Staff>();
+            conn = new MySqlConnection(connString);
+            conn.Open();
+            MySqlCommand command = new MySqlCommand("SELECT * FROM staff;", conn);
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read() && reader.HasRows)
+            {
+                var currentStaff = new Staff()
+                {
+                    ID = reader.GetInt32("ID"),
+                    Surname = reader.GetString("Surname"),
+                    Name = reader.GetString("Name"),
+                    FatherName = reader.GetString("FatherName"),
+                    Position = reader.GetString("Position")
+                };
+                staff.Add(currentStaff);
+            }
+            conn.Close();
+            var typecmb = this.Find<ComboBox>(name:"FiltrComboBox");
+            typecmb.ItemsSource = staff;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
     private void SearchTextBox_OnTextChanged(object? sender, TextChangedEventArgs e)
     {
         var stf = staff;
@@ -58,5 +88,36 @@ public partial class ClientStaff : Window
         ClientMainMenu menu = new ClientMainMenu();
         Hide();
         menu.Show();
+    }
+
+    private void FiltrTable_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
+    {
+        try
+        {
+            var TypeCmB = (ComboBox)sender;
+            var currentStaff = TypeCmB.SelectedItem as Staff;
+            var fltrmember = staff
+                .Where(x => x.ID == currentStaff.ID)
+                .ToList();
+            StaffGrid.ItemsSource = fltrmember;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
+    private void ResetTable_OnClick(object? sender, RoutedEventArgs e)
+    {
+        try
+        {
+            SearchTextBox.Text = string.Empty;
+            string fullTableShow = "SELECT * FROM staff;";
+            ShowTable(fullTableShow);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 }
