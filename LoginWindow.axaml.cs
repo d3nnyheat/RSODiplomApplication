@@ -58,6 +58,10 @@ public partial class LoginWindow : Window
                 Hide();
                 clientmenu.Show();
             }
+            else
+            {
+                LoginError.IsVisible = true;
+            }
         }
         catch (Exception ex)
         {

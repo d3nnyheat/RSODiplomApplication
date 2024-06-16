@@ -8,7 +8,7 @@
         Background="#70C5FF"
         WindowStartupLocation="CenterScreen"
         MaxWidth="310" MinWidth="310"
-        MaxHeight="150" MinHeight="150"
+        MaxHeight="170" MinHeight="170"
         Icon="/Assets/RSOicon.ico">
     <Grid>
         <StackPanel Orientation="Vertical">

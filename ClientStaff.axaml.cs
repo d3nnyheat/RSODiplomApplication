@@ -17,6 +17,7 @@ public partial class ClientStaff : Window
         this.Closing += StaffForm_Closing; // завершает работу приложения в случае закрытии программы на крестик
         string fullTableShow = "SELECT * FROM staff;";
         ShowTable(fullTableShow);
+        FiltrTable();
     }
     private List<Staff> staff;
     private string connString = "server=localhost;database=rsodatabase;User Id=root;password=landoNorris4";
